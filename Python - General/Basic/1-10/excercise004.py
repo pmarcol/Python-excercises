@@ -19,6 +19,9 @@ while True:
     except ValueError:
         print("Not a number")
         continue
+    if(radius<0):
+        print("Radius should not be negative. Try again.")
+        continue
     else:
         break
 
