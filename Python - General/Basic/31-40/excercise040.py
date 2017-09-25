@@ -5,6 +5,7 @@ Write a Python program to compute the distance between the points (x1, y1) and (
 """
 SOLUTION:
 """
+
 from math import sqrt
 
 def calculateDistance(point1, point2):
