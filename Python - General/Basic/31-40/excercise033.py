@@ -6,6 +6,16 @@ Write a Python program to sum of three given integers. However, if two values ar
 SOLUTION:
 """
 
+import sys
+import os
+from pathlib import Path
+
+abspath = Path(__file__)
+toolspath = abspath.parents[3]
+sys.path.append(str(toolspath / 'tools'))
+
+from GetFromUser import GetListOfIntegers
+
 def specialSum(num1, num2, num3):
     result = num1 + num2 + num3
     if(num1==num2 or num2==num3 or num1==num3):
@@ -13,17 +23,11 @@ def specialSum(num1, num2, num3):
     return result
 
 while True:
-    try:
-        inputString = input('Give me list of 3 numbers:')
-        elements = [x.strip() for x in inputString.split(',')]
-        numbersList = [int(element) for element in elements]
-    except ValueError:
-        print('Incorrect format of input data.')
-        continue
-    if(len(numbersList) != 3):
-        print('You should give exactly three numbers.')
+    myList = GetListOfIntegers()
+    if(len(myList) != 3):
+        print("You should give exactly three numbers. Try again.")
         continue
     else:
         break
 
-print(specialSum(numbersList[0],numbersList[1],numbersList[2]))
+print(specialSum(myList[0],myList[1],myList[2]))

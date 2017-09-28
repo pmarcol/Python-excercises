@@ -16,6 +16,16 @@ NOTE: There is probably a bug in solution. (x == 248)?!
 SOLUTION:
 """
 
+import sys
+import os
+from pathlib import Path
+
+abspath = Path(__file__)
+toolspath = abspath.parents[3]
+sys.path.append(str(toolspath / 'tools'))
+
+from GetFromUser import GetListOfIntegers
+
 def makeListOfEvenNumbersAndStopAt237(myList):
     outputList = []
     for n in myList:
@@ -25,15 +35,6 @@ def makeListOfEvenNumbersAndStopAt237(myList):
             outputList.append(n)
     return outputList
 
-while True:
-    try:
-        inputString = input('Give me list of numbers:')
-        elements = [x.strip() for x in inputString.split(',')]
-        numbersList = [int(element) for element in elements]
-    except ValueError:
-        print('Incorrect format of input data.')
-        continue
-    else:
-        break
+myList = GetListOfIntegers()
 
-print("Output list: %s" % makeListOfEvenNumbersAndStopAt237(numbers))
+print("Output list: %s" % makeListOfEvenNumbersAndStopAt237(myList))

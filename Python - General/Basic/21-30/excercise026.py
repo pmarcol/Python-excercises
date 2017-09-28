@@ -6,6 +6,16 @@
 SOLUTION:
 """
 
+import sys
+import os
+from pathlib import Path
+
+abspath = Path(__file__)
+toolspath = abspath.parents[3]
+sys.path.append(str(toolspath / 'tools'))
+
+from GetFromUser import GetListOfIntegers
+
 def histogram(myList):
     output = ''
     for n in myList:
@@ -14,24 +24,16 @@ def histogram(myList):
         while( times > 0 ):
             bar += '*'
             times = times - 1
-        if(output != ''):
-            output += '\n'
+        output += '\n'
         output += bar
     return output
 
 while True:
-    try:
-        inputString = input('Give me list of numbers (nonnegative integers):')
-        elements = [x.strip() for x in inputString.split(',')]
-        numbersList = [int(element) for element in elements]
-    except ValueError:
-        print('Incorrect format of input data.')
-        continue
-    if(min(numbersList) < 0):
+    myList = GetListOfIntegers()
+    if(min(myList) < 0):
         print("All integers should be nonegative. Try again.")
         continue
     else:
         break
 
-
-print(histogram(numbersList))
+print(histogram(myList))

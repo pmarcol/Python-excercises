@@ -10,20 +10,26 @@ Tuple : ('3', ' 5', ' 7', ' 23')
 SOLUTION:
 """
 
+import sys
+import os
+from pathlib import Path
+
+abspath = Path(__file__)
+toolspath = abspath.parents[3]
+sys.path.append(str(toolspath / 'tools'))
+
+from GetFromUser import GetListOfIntegers
+
 while True:
-    try:
-        inputString = input('Give me list of numbers:')
-        elements = [x.strip() for x in inputString.split(',')]
-        numbersList = [int(element) for element in elements]
-    except ValueError:
-        print('Incorrect format of input data.')
-        continue
-    if(len(numbersList) == 1):
-        print('You should give at lest two numbers.')
+    myList = GetListOfIntegers()
+    if (len(myList)<=1):
+        print("You should give at least two numbers. Try again.")
         continue
     else:
         break
-numbersTuple = tuple(numbersList)
+    
+numbersTuple = tuple(myList)
 
-print('List: %s' % (numbersList))
+print('List: %s' % (myList))
 print('Tuple: %s' % (numbersTuple,))
+

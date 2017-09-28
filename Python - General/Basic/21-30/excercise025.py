@@ -9,27 +9,20 @@ Test Data :
 SOLUTION:
 """
 
+import sys
+import os
+from pathlib import Path
+
+abspath = Path(__file__)
+toolspath = abspath.parents[3]
+sys.path.append(str(toolspath / 'tools'))
+
+from GetFromUser import GetInteger, GetListOfIntegers
+
 def listContainsElement(myList, myElement):
     return (myList.count(myElement) > 0)
 
-while True:
-    try:
-        inputString = input('Give me list of numbers:')
-        elements = [x.strip() for x in inputString.split(',')]
-        numbersList = [int(element) for element in elements]
-    except ValueError:
-        print('Incorrect format of input data.')
-        continue
-    else:
-        break
+myList = GetListOfIntegers()
+myInt = GetInteger()
 
-while True:
-    try:
-        myInt=int(input('Give a number (integer):'))
-    except ValueError:
-        print("Not an integer. Try again.")
-        continue
-    else:
-        break
-
-print("The list: %s contains %d: %s" % (numbersList, myInt, listContainsElement(numbersList,myInt)))
+print("The list: %s contains %d: %s" % (myList, myInt, listContainsElement(myList,myInt)))

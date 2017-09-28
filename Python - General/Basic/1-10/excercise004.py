@@ -10,20 +10,20 @@ SOLUTION:
 """
 
 import math
+import sys
+import os
+from pathlib import Path
+
+abspath = Path(__file__)
+toolspath = abspath.parents[3]
+sys.path.append(str(toolspath / 'tools'))
+
+from GetFromUser import GetNonNegativeFloat
 
 pivalue = math.pi
 
-while True:
-    try:
-        radius=float(input('Give radius:'))
-    except ValueError:
-        print("Not a number")
-        continue
-    if(radius<0):
-        print("Radius should not be negative. Try again.")
-        continue
-    else:
-        break
+print("Let's set the radius:")
+radius = GetNonNegativeFloat()
 
 area = pivalue*(radius**2)
 print(area)

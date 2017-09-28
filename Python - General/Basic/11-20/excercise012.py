@@ -8,29 +8,32 @@ SOLUTION:
 """
 
 import calendar
+import sys
+import os
+from pathlib import Path
+
+abspath = Path(__file__)
+toolspath = abspath.parents[3]
+sys.path.append(str(toolspath / 'tools'))
+
+from GetFromUser import GetPositiveInteger
 
 #get number of month
+print("Let's set the month.")
 while True:
-    try:
-        theMonth = int(input('Give me number of the month:'))
-        if (not(0<theMonth<13)):
-            print('Incorrect number of month. Try again.')
-            continue
-    except ValueError:
-        print('Incorrect input. Try again.')
+    theMonth = GetPositiveInteger()
+    if (not(0<theMonth<13)):
+        print('Incorrect number of month. Try again.')
         continue
     else:
         break
 
 #get number of year
+print("Let's set the year.")
 while True:
-    try:
-        theYear = int(input('Give me number of the year:'))
-        if (not(0<theYear)):
-            print('Incorrect number of year. Try again.')
-            continue
-    except ValueError:
-        print('Incorrect input. Try again.')
+    theYear = GetPositiveInteger()
+    if (not(0<theYear)):
+        print('Incorrect number of year. Try again.')
         continue
     else:
         break

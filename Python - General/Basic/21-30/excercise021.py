@@ -7,17 +7,20 @@ Write a Python program to find whether a given number
 SOLUTION:
 """
 
+import sys
+import os
+from pathlib import Path
+
+abspath = Path(__file__)
+toolspath = abspath.parents[3]
+sys.path.append(str(toolspath / 'tools'))
+
+from GetFromUser import GetInteger
+
 def OddOrEven(num):
     if(num%2 == 0): return "even"
     else: return "odd"
 
-while True:
-    try:
-        myInt=int(input('Give a number (integer):'))
-    except ValueError:
-        print("Not an integer. Try again.")
-        continue
-    else:
-        break
+myInt = GetInteger()
 
 print("Given number (%d) is %s" %(myInt, OddOrEven(myInt)))

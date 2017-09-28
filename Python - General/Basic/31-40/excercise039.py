@@ -9,44 +9,22 @@ Expected Output : 12722.79
 SOLUTION:
 """
 
+import sys
+import os
+from pathlib import Path
+
+abspath = Path(__file__)
+toolspath = abspath.parents[3]
+sys.path.append(str(toolspath / 'tools'))
+
+from GetFromUser import GetNonNegativeFloat, GetNonNegativeInteger
+
 def calculateFutureValue(origAmount, intRate, numberOfYears):
     factor = 1 + (intRate/100)
     return origAmount * ((factor)**numberOfYears)
 
-while True:
-    try:
-        amt=float(input('Give original amount:'))
-    except ValueError:
-        print("Not a number. Try again.")
-        continue
-    if(amt < 0):
-        print("Amount should not be negative. Try again.")
-        continue
-    else:
-        break
-
-while True:
-    try:
-        rate=float(input('Give interest rate:'))
-    except ValueError:
-        print("Not a number. Try again.")
-        continue
-    if(rate < 0):
-        print("Interest rate should not be negative. Try again.")
-        continue
-    else:
-        break
-
-while True:
-    try:
-        yrs=int(input('Give number of years:'))
-    except ValueError:
-        print("Not an integer. Try again.")
-        continue
-    if(yrs < 0):
-        print("Number of years should not be negative. Try again.")
-        continue
-    else:
-        break
+amt = GetNonNegativeFloat()
+rate = GetNonNegativeFloat()
+yrs = GetNonNegativeInteger()
 
 print(calculateFutureValue(amt, rate, yrs))

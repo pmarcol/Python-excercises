@@ -6,6 +6,16 @@ Write a Python program to compute the greatest common divisor (GCD) of two posit
 SOLUTION:
 """
 
+import sys
+import os
+from pathlib import Path
+
+abspath = Path(__file__)
+toolspath = abspath.parents[3]
+sys.path.append(str(toolspath / 'tools'))
+
+from GetFromUser import GetPositiveInteger
+
 #Euclidean Algorithm:
 def getGCD(a,b):
     x = max(a, b)
@@ -21,28 +31,10 @@ def getGCD(a,b):
     
     return rem
 
-while True:
-    try:
-        myInt1=int(input('Give first number (positive integer):'))
-    except ValueError:
-        print("Not an integer. Try again.")
-        continue
-    if(myInt1<0):
-        print("The number should not be negative. Try again.")
-        continue
-    else:
-        break
+print("Let's set the first number:")
+myInt1 = GetPositiveInteger()
 
-while True:
-    try:
-        myInt2=int(input('Give first number (positive integer):'))
-    except ValueError:
-        print("Not an integer. Try again.")
-        continue
-    if(myInt2<0):
-        print("The number should not be negative. Try again.")
-        continue
-    else:
-        break
+print("Let's set the second number:")
+myInt2 = GetPositiveInteger()
 
 print("GCD of %d and %d is %d." % (myInt1,myInt2,getGCD(myInt1,myInt2)))

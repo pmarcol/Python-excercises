@@ -8,21 +8,21 @@ Return the n copies of the whole string if the length is less than 2.
 SOLUTION:
 """
 
+import sys
+import os
+from pathlib import Path
+
+abspath = Path(__file__)
+toolspath = abspath.parents[3]
+sys.path.append(str(toolspath / 'tools'))
+
+from GetFromUser import GetNonNegativeInteger
+
 def multiplyStringNTimes(myStr, myInt):
     return myInt * myStr
 
-while True:
-    try:
-        myInt=int(input('Give a number (integer):'))
-    except ValueError:
-        print("Not an integer. Try again.")
-        continue
-    if(myInt<0):
-        print("The number should not be negative. Try again.")
-        continue
-    else:
-        break
+myInt = GetNonNegativeInteger()
 
-myString = input('Give a number (integer):')
+myString = input('Give a string:')
 
 print(multiplyStringNTimes(myString[:2],myInt))
