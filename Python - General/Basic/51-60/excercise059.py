@@ -27,7 +27,7 @@ print("Lets set the feet:")
 feet = GetNonNegativeInteger()
 
 #Get the inches:
-print("Lets set the inches:")
+print("Let's set the inches:")
 inches = GetNonNegativeInteger()
 
 print("%d ft and %d in is %f cm." % (feet, inches, ConvertToCm(feet, inches)))

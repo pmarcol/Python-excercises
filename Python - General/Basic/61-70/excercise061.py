@@ -35,7 +35,7 @@ def feetConverter(feet, targetUnit):
 
 
 #Get the feet:
-print("Lets set the distance (in feet):")
+print("Let's set the distance (in feet):")
 feet = GetNonNegativeInteger()
 
 print("%d feet is %s inches." % (feet, feetConverter(feet,"inches")))
