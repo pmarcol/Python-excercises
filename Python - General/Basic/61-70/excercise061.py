@@ -23,7 +23,6 @@ feetConversionRatioTable = {
     "miles" : 1/5280
 }
 
-
 def feetConverter(feet, targetUnit):
     try:
         ratio = feetConversionRatioTable[targetUnit]
