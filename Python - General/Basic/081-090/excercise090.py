@@ -1,8 +1,9 @@
 """
 Write a Python program to create a copy of its own source code.
 
-NOTE: I have no idea what this excercise is about. I capied the solution.
+NOTE: I have no idea what this excercise is about. I copied the solution.
 """
+
 """
 SOLUTION:
 """
