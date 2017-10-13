@@ -8,7 +8,6 @@ SOLUTION:
 """
 
 import sys
-import os
 from pathlib import Path
 
 abspath = Path(__file__)

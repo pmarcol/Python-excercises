@@ -8,7 +8,6 @@ SOLUTION:
 
 from math import sqrt
 import sys
-import os
 from pathlib import Path
 
 abspath = Path(__file__)

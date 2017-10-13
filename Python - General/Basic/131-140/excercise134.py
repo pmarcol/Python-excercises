@@ -1,6 +1,7 @@
 """
-Write a Python program to sum of two given integers.
-However, if the sum is between 15 to 20 it will return 20
+Write a Python program to input two integers in a single line.
+
+NOTE: Maybe my solution is not the most trivial, but I will make use of previously prepared code for getting an user input.
 """
 
 """
@@ -16,11 +17,6 @@ sys.path.append(str(toolspath / 'tools'))
 
 from GetFromUser import GetListOfIntegers
 
-def specialSum(a, b):
-    output = a + b
-    if(15<= output <= 20): output = 20
-    return output
-
 while True:
     myList = GetListOfIntegers()
     if(len(myList) != 2):
@@ -29,4 +25,4 @@ while True:
     else:
         break
 
-print(specialSum(myList[0],myList[1]))
+print("Your numbers are: %d and %d" % (myList[0], myList[1]))

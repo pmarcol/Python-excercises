@@ -8,7 +8,6 @@ SOLUTION:
 """
 
 import sys
-import os
 from pathlib import Path
 
 abspath = Path(__file__)
@@ -21,7 +20,7 @@ def difference17(num):
     if(num>17):
         return 2*abs(17-num)
     else:
-        return abs(17-num)
+        return 17-num
 
 myInt = GetInteger()
 

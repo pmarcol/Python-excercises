@@ -10,7 +10,6 @@ SOLUTION:
 """
 
 import sys
-import os
 from pathlib import Path
 from math import sqrt
 
