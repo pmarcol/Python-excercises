@@ -10,6 +10,7 @@ with first letters as keys and lists of words starting with this letter as value
 """
 SOLUTION:
 """
+
 def myGroup(aList):
     from itertools import groupby
     from operator import itemgetter
